@@ -16,7 +16,10 @@
     "@angular/platform-server": "^5.0.0",
     "@angular/router": "^5.0.0",
     "core-js": "^2.5.1",
+    "html-loader": "^0.5.1",
+    "raw-loader": "^0.5.1",
     "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.5.2",
     "webpack": "^3.8.1",
     "zone.js": "^0.8.18"
   },

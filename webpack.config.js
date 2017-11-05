@@ -1,8 +1,13 @@
 const path = require('path');
+const webpack = require('webpack');
+const helpers = require('./config/helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: "./src/app.ts", // bundle entry point
+    entry: {
+        polyfills:"./src/polyfills.ts",
+        main:"./src/app.ts"
+    }, // bundle entry point
     resolve: {
       extensions: ['.js', '.ts']
     },
@@ -31,14 +36,35 @@ module.exports = {
           },
           {
               test: /\.scss$/,
-              loader: ["style-loader", "css-loader", "sass-loader?sourceMap"]
+              loader: ["raw-loader", "sass-loader?sourceMap"]
+          },
+          {
+              test: /\.html$/,
+              loader: "html-loader"
           }
       ]
     },
     plugins: [
+        // Workaround for angular/angular#11580
+        new webpack.ContextReplacementPlugin(
+            // The (\\|\/) piece accounts for path separators in *nix and Windows
+            /angular(\\|\/)core(\\|\/)@angular/,
+            helpers.root('./src'), // location of your src
+            {} // a map of your routes
+        ),
         new HtmlWebpackPlugin({
             template: "src/index.html",
             inject: "body"
         })
-    ]
-}
+    ],
+    /**
+     * Instructs webpack to generate source-maps
+     */
+    devtool:"source-map",
+    /**
+     * Required when using webpack-dev-server with angular routing
+     */
+    devServer: {
+        historyApiFallback:true
+    }
+};

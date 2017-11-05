@@ -1,8 +1,4 @@
-import {msg} from "./contents";
-import "./message.scss";
+import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
+import {AppModule} from "./app/app.module";
 
-const div = document.createElement("div");
-div.id = "message";
-const txtNode = document.createTextNode(msg);
-div.appendChild(txtNode);
-document.body.appendChild(div);
+platformBrowserDynamic().bootstrapModule(AppModule);
