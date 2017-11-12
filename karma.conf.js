@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Sat Nov 11 2017 23:12:49 GMT+0200 (IST)
+// Please install after that karma-cli: npm install -g karma-cli and run karma start
 
 module.exports = function(config) {
   config.set({
@@ -67,11 +68,11 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity,
 
-    plugins:[
-      'karma-webpack',
-      'karma-sourcemap-loader',
-      'karma-jasmine'
-    ],
+    // plugins:[
+    //   'karma-webpack',
+    //   'karma-sourcemap-loader',
+    //   'karma-jasmine'
+    // ],
 
     /**
      * Load webpack test configuration file
