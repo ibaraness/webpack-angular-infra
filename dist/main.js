@@ -60,22 +60,16 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var msg = __webpack_require__(1);
-document.write(msg);
-
-/***/ }),
+/* 0 */,
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = "hello friend!";
-
+throw new Error("Module build failed: Error: Cannot find module 'typescript'\n    at Function.Module._resolveFilename (module.js:470:15)\n    at Function.Module._load (module.js:418:25)\n    at Module.require (module.js:498:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/Users/idanbaraness/Documents/Projects/msbit/webpack-angular-infra/node_modules/tslint/lib/linter.js:20:10)\n    at Module._compile (module.js:571:32)\n    at Object.Module._extensions..js (module.js:580:10)\n    at Module.load (module.js:488:32)\n    at tryModuleLoad (module.js:447:12)\n    at Function.Module._load (module.js:439:3)\n    at Module.require (module.js:498:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/Users/idanbaraness/Documents/Projects/msbit/webpack-angular-infra/node_modules/tslint/lib/index.js:24:14)\n    at Module._compile (module.js:571:32)\n    at Object.Module._extensions..js (module.js:580:10)\n    at Module.load (module.js:488:32)\n    at tryModuleLoad (module.js:447:12)\n    at Function.Module._load (module.js:439:3)\n    at Module.require (module.js:498:17)\n    at require (internal/module.js:20:19)\n    at Object.<anonymous> (/Users/idanbaraness/Documents/Projects/msbit/webpack-angular-infra/node_modules/tslint-loader/index.js:8:12)\n    at Module._compile (module.js:571:32)\n    at Object.Module._extensions..js (module.js:580:10)\n    at Module.load (module.js:488:32)\n    at tryModuleLoad (module.js:447:12)\n    at Function.Module._load (module.js:439:3)\n    at Module.require (module.js:498:17)\n    at require (internal/module.js:20:19)\n    at loadLoader (/Users/idanbaraness/Documents/Projects/msbit/webpack-angular-infra/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/Users/idanbaraness/Documents/Projects/msbit/webpack-angular-infra/node_modules/loader-runner/lib/LoaderRunner.js:169:2)");
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=main.js.map

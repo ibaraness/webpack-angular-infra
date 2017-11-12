@@ -4,18 +4,30 @@ const helpers = require('./config/helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    /**
+     * The entry point from which Webpack start building the bundle
+     */
     entry: {
         polyfills:"./src/polyfills.ts",
         main:"./src/app.ts"
-    }, // bundle entry point
+    }, 
     resolve: {
-      extensions: ['.js', '.ts']
+        /**
+         * An array of extensions thast should be discoverable by the module loader
+         */
+        extensions: ['.js', '.ts']
     },
+    /**
+     * The output directory and file name(s) of the bundle
+     */
     output: {
         path: path.resolve(__dirname, 'dist'), //output directory
         filename: "[name].js" // name of generated bundle
     },
     module: {
+        /**
+         * Different loader rules that makes webpack able to load other files types different from JavaScript
+         */
       rules: [
           /**
            * css-loader: The css-loader loads css files and returns css code.
@@ -25,15 +37,25 @@ module.exports = {
               test: /\.css$/,
               loader: ["style-loader", "css-loader"]
           },
+          /**
+           * awesome-typescript-loader: transpile typescript to javascript
+           */
           {
               test: /\.ts$/,
               loader: "awesome-typescript-loader"
           },
+          /**
+           * tslint-loader: run lint on TypeScript files before transpling (enforce: "pre")
+           */
           {
               test: /\.ts$/,
               enforce: "pre",
               loader: "tslint-loader"
           },
+          /**
+           * raw-loader: let us load scss files as strings
+           * sass-loader: compiles Sass to CSS
+           */
           {
               test: /\.scss$/,
               loader: ["raw-loader", "sass-loader?sourceMap"]
@@ -48,10 +70,13 @@ module.exports = {
         // Workaround for angular/angular#11580
         new webpack.ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
-            /angular(\\|\/)core(\\|\/)@angular/,
+            /@angular(\\|\/)core(\\|\/)/,
             helpers.root('./src'), // location of your src
             {} // a map of your routes
         ),
+        /**
+         * Correctly inject complied budle JS files to HTML
+         */
         new HtmlWebpackPlugin({
             template: "src/index.html",
             inject: "body"
