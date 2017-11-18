@@ -42,7 +42,7 @@ module.exports = {
            */
           {
               test: /\.ts$/,
-              loader: "awesome-typescript-loader"
+              loaders: ["awesome-typescript-loader", 'angular2-template-loader']
           },
           /**
            * tslint-loader: run lint on TypeScript files before transpling (enforce: "pre")
@@ -62,7 +62,7 @@ module.exports = {
           },
           {
               test: /\.html$/,
-              loader: "html-loader"
+              loader: "html-loader?minimise=true"
           }
       ]
     },
