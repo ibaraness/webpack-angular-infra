@@ -39,6 +39,14 @@ module.exports = {
           },
           /**
            * awesome-typescript-loader: transpile typescript to javascript
+           * angular2-template-loader: allow us to load templates and styles with relative path:
+           *    ...
+           *    @Component({
+           *        selector: 'app-component',
+           *        templateUrl: './relative-path-to-template/template.html',
+           *        styleUrls: './relative-path-to-styles/style.scss'
+           *    })
+           *    ...
            */
           {
               test: /\.ts$/,
